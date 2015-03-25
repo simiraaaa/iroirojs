@@ -7,70 +7,70 @@
 
 tm.bullet = tm.bullet || {};
 
-(function(tm, Worker, undefined) {
+(function (tm, Worker, undefined) {
 
     var BULLET_NAMESPACE = "tm.bullet.";
-    var createName = function(name) {
+    var createName = function (name) {
         return BULLET_NAMESPACE + name;
     };
 
     var Bullet = tm.define(createName("Bullet"), {
-        superClass : tm.display.CanvasElement,
+        superClass: tm.display.CanvasElement,
 
-        targetType : 1 + 2,
-        target : null,
-        targetList : null,
+        targetType: 1 + 2,
+        target: null,
+        targetList: null,
 
         // 発生源のオブジェクト
-        shooter : null,
+        shooter: null,
 
-        init : function() {
+        init: function () {
             this.superInit();
         },
 
-        setShooter : function(shooter) {
+        setShooter: function (shooter) {
             this.shooter = shooter;
             return this;
         },
 
-        setTarget : function(target) {
+        setTarget: function (target) {
             this.target = target;
             return this;
         },
 
-        setTargetList : function(targetList) {
+        setTargetList: function (targetList) {
             this.targetList = targetList;
             return this;
         },
 
-        setTargetType : function(type) {
+        setTargetType: function (type) {
             this.targetType = type;
             return this;
         },
 
-        hitTest : function(target, app, list) {
+        hitTest: function (target, app, list) {
             if (this.isHitElement(target)) {
                 this.hit(target, app, list);
             }
             return this;
         },
 
-        hit : function(target, app, list) {
-        // 実装して衝突時の動作を指定
+        hit: function (target, app, list) {
+            // 実装して衝突時の動作を指定
         },
 
-        move : function(app) {
-        // 移動時の動作、その他
+        move: function (app) {
+            // 移動時の動作、その他
         },
 
-        _oneHitTest : function(app) {
+        _oneHitTest: function (app) {
             if (this.target) {
                 this.hitTest(this.target, app);
             }
             return this;
         },
 
-        _listHitTest : function(app) {
+        _listHitTest: function (app) {
             var list = this.targetList;
             if (!list) {
                 return this;
@@ -83,7 +83,7 @@ tm.bullet = tm.bullet || {};
             return this;
         },
 
-        onType : function(t) {
+        onType: function (t) {
             var on = (this.targetType & t) === t;
             if (!on) {
                 this.targetType += t;
@@ -91,22 +91,22 @@ tm.bullet = tm.bullet || {};
             return this;
         },
 
-        offType : function(t) {
+        offType: function (t) {
             if ((this.targetType & t) === t) {
                 this.targetType -= t;
             }
             return this;
         },
 
-        onAllType : function() {
+        onAllType: function () {
             return this.onType(1).onType(2);
         },
 
-        offAllType : function() {
+        offAllType: function () {
             return this.offType(1).offType(2);
         },
 
-        update : function(app) {
+        update: function (app) {
             this.move(app);
             var t = this.targetType;
             if ((t & 1) === 1) {
@@ -121,15 +121,15 @@ tm.bullet = tm.bullet || {};
 
     });
 
-    var Shot = (function() {
+    var Shot = (function () {
 
         var target = null, targetList = null, targetType = 3, shooter = null, parent = null;
 
         var Shot = tm.define(createName("Shot"), {
-            superClass : Bullet,
-            targetType : 3,
+            superClass: Bullet,
+            targetType: 3,
 
-            init : function() {
+            init: function () {
                 this.superInit();
                 this.target = target || null;
                 this.targetList = targetList || null;
@@ -140,7 +140,7 @@ tm.bullet = tm.bullet || {};
 
         });
 
-        Shot.onType = function(t) {
+        Shot.onType = function (t) {
             var on = (targetType & t) === t;
             if (!on) {
                 targetType += t;
@@ -148,62 +148,62 @@ tm.bullet = tm.bullet || {};
             return Shot;
         };
 
-        Shot.offType = function(t) {
+        Shot.offType = function (t) {
             if ((targetType & t) === t) {
                 targetType -= t;
             }
             return Shot;
         };
 
-        Shot.onAllType = function() {
+        Shot.onAllType = function () {
             return Shot.onType(1).onType(2);
         };
 
-        Shot.offAllType = function() {
+        Shot.offAllType = function () {
             return Shot.offType(1).offType(2);
         };
 
         Shot.accessor("target", {
-            set : function(t) {
+            set: function (t) {
                 target = t;
             },
-            get : function() {
+            get: function () {
                 return target;
             }
         });
 
         Shot.accessor("shooter", {
-            set : function(s) {
+            set: function (s) {
                 shooter = s;
             },
-            get : function() {
+            get: function () {
                 return shooter;
             }
         });
 
         Shot.accessor("parent", {
-            set : function(p) {
+            set: function (p) {
                 parent = p;
             },
-            get : function() {
+            get: function () {
                 return parent;
             }
         });
 
         Shot.accessor("targetList", {
-            set : function(list) {
+            set: function (list) {
                 targetList = list;
             },
-            get : function() {
+            get: function () {
                 return targetList;
             }
         });
 
         Shot.accessor("targetType", {
-            set : function(type) {
+            set: function (type) {
                 targetType = type;
             },
-            get : function() {
+            get: function () {
                 return targetType;
             }
         });
@@ -211,14 +211,14 @@ tm.bullet = tm.bullet || {};
         return Shot;
     })();
 
-    var EnemyBullet = (function() {
+    var EnemyBullet = (function () {
 
         var target = null, targetList = null, targetType = 1, shooter = null, parent = null;
 
         var EnemyBullet = tm.define(createName("EnemyBullet"), {
-            superClass : Bullet,
+            superClass: Bullet,
 
-            init : function() {
+            init: function () {
                 this.superInit();
                 this.target = target || null;
                 this.targetList = targetList || null;
@@ -230,7 +230,7 @@ tm.bullet = tm.bullet || {};
 
         });
 
-        EnemyBullet.onType = function(t) {
+        EnemyBullet.onType = function (t) {
             var on = (targetType & t) === t;
             if (!on) {
                 targetType += t;
@@ -238,62 +238,62 @@ tm.bullet = tm.bullet || {};
             return EnemyBullet;
         };
 
-        EnemyBullet.offType = function(t) {
+        EnemyBullet.offType = function (t) {
             if ((targetType & t) === t) {
                 targetType -= t;
             }
             return EnemyBullet;
         };
 
-        EnemyBullet.onAllType = function() {
+        EnemyBullet.onAllType = function () {
             return EnemyBullet.onType(1).onType(2);
         };
 
-        EnemyBullet.offAllType = function() {
+        EnemyBullet.offAllType = function () {
             return EnemyBullet.offType(1).offType(2);
         };
 
         EnemyBullet.accessor("target", {
-            set : function(t) {
+            set: function (t) {
                 target = t;
             },
-            get : function() {
+            get: function () {
                 return target;
             }
         });
 
         EnemyBullet.accessor("shooter", {
-            set : function(s) {
+            set: function (s) {
                 shooter = s;
             },
-            get : function() {
+            get: function () {
                 return shooter;
             }
         });
 
         EnemyBullet.accessor("parent", {
-            set : function(p) {
+            set: function (p) {
                 parent = p;
             },
-            get : function() {
+            get: function () {
                 return parent;
             }
         });
 
         EnemyBullet.accessor("targetList", {
-            set : function(list) {
+            set: function (list) {
                 targetList = list;
             },
-            get : function() {
+            get: function () {
                 return targetList;
             }
         });
 
         EnemyBullet.accessor("targetType", {
-            set : function(type) {
+            set: function (type) {
                 targetType = type;
             },
-            get : function() {
+            get: function () {
                 return targetType;
             }
         });
