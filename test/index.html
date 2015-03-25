@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>iroiro</title>
+<script type="text/javascript">
+(function(w,O,d,con){
+	var ws=O.getOwnPropertyNames(w);
+	var keseru="";
+	var kesenai="";
+	var c = 0;
+	for(var i =0,l=ws.length;i<l;){
+		var _w=ws[i++];
+		if(delete w[_w]){
+			keseru+=_w+"\n";
+		}else{
+			kesenai+=_w+"\n";
+			++c;
+		}
+	}
+	var write = "消せないグローバル変数\n"+kesenai+"\n----\n"+"消せるグローバル変数\n"+keseru;
+	con.log(write);
+	d.write(write.split("\n").join("<br />") + "残った変数の数:"+c);
+
+})(window,Object, document, console);
+</script>
+</head>
+<body>
+
+</body>
+</html>
