@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>iroiro</title>
+<script type="text/javascript">
+this.onload=function(){(function(){
+	var pages=[
+	           "smr",
+	           "JSSenka",
+	           "suraido",
+	           "test",
+	           "jikken"
+	           ];
+	var setumei=[
+	             "tmlib.jsみたいなものを作ってる。\nただの下位互換になるかもしれない。",
+	             "",
+	             "画像とテキストをセットするだけで簡単にスライドショーっぽいものが作れる。\n本当に画像の下にテキストが入って画像を切り替えれるだけ。",
+	             "消せるグローバル変数。消せないグローバル変数を表示。<br>実際消してるので、消えてるやつは参照できない。<br>iPhoneだと意外と残ってる",
+	             ""
+	             ];
+	var doc=document;
+	var body = doc.body;
+	var append=function(ko, oya){
+		(oya || document.body).appendChild(ko = document.createElement(ko));
+		return ko;
+	}
+	var as={};
+	for(var i = 0,l=pages.length; i <l;++i){
+		var page = pages[i];
+		var a = as[page] = append("a",body);
+		a.href=page;
+		a.innerText=page;
+
+		var p = append("p",body);
+		p.innerHTML=setumei[i].split("\n").join("<br />");
+	}
+})();}
+</script>
+</head>
+<body>
+
+
+
+</body>
+</html>
