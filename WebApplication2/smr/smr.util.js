@@ -1,4 +1,6 @@
-(function(smr, undefined) {
+///<reference path="smr.js" />
+
+(function (smr, undefined) {
     "use strict";
 
     var EQUAL = "=", AMP = "&";
