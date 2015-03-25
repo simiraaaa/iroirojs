@@ -2,6 +2,9 @@
 // Released under the MIT license
 // http://opensource.org/licenses/mit-license.php
 
+
+///<reference path="tmlib.js"/>
+
 tm.bullet = tm.bullet || {};
 
 (function(tm, Worker, undefined) {
