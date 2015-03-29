@@ -171,7 +171,7 @@
                 if (typeof data === "string") {
                     qs = params.encode ? smr.util.queryString.encodeURINonEqual(data) : data;
                 } else if (!(data instanceof FormData)) {
-                    qs = smr.util.queryString.stringify(data, false);
+                    qs = smr.util.queryString.stringify(data, params.encode);
                 } else {
                     qs = data;
                 }
