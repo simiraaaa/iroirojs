@@ -23,6 +23,7 @@
     var DEFAULT_PARAMS = {
         type: "GET",
         async: true,
+        encode: true,
         data: null,
         contentType: "application/x-www-form-urlencoded",
         charset: null,
@@ -134,6 +135,7 @@
          *            defaut={ <br>
          *            type : "GET",//or "POST"<br>
          *            async : true,//or false <br>
+         *            encode : true,//or false dataをencodeURIComponentするかそのままか<br>
          *            data : null,//POST時に送信するデータ GET時のクエリ文字列<BR>
          *            //{key:value}の形式のオブジェクトでも指定できる<br>
          *            contentType : "application/x-www-form-urlencoded",<br>
@@ -167,9 +169,9 @@
                 params.data = null;
                 var qs = "";
                 if (typeof data === "string") {
-                    qs = smr.util.queryString.encodeURINonEqual(data);
+                    qs = params.encode ? smr.util.queryString.encodeURINonEqual(data) : data;
                 } else if (!(data instanceof FormData)) {
-                    qs = smr.util.queryString.stringify(data);
+                    qs = smr.util.queryString.stringify(data, false);
                 } else {
                     qs = data;
                 }
