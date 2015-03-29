@@ -440,6 +440,26 @@ var smr = smr || {};
             return this;
         },
 
+
+        /**
+         * 引数のオブジェクトのプロパティで同名のプロパティを上書きする
+         * addの別名
+         * 将来的にはaddはなくしたい
+         * @name extend
+         */
+        add: function (o) {
+            return this.add(o);
+        },
+        /**
+         * プロパティがない場合に追加
+         * addIfNotHaveの別名
+         * @param o
+         * @returns {smr.Object}
+         */
+        safe: function (o) {
+            return this.addIfNotHave(o);
+        },
+
         /**
          * メソッドを配列に渡した順番に実行する. 普通に実行するより5倍ぐらい遅い. 引数が一つでも配列で渡す.
          *

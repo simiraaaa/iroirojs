@@ -5,7 +5,7 @@
 
     var EQUAL = "=", AMP = "&";
     var global = smr.global;
-    var encodeURI = global.encodeURIComponent;
+    var encodeURIComponent = global.encodeURIComponent;
 
     var util = {};
     util.queryString = {

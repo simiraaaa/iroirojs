@@ -19,12 +19,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="single\index.html" />
+    <Content Include="single\smr.single.js" />
     <Content Include="smr.google.js" />
     <Content Include="smr.ajax.js" />
     <Content Include="smr.dom.icon.js" />
     <Content Include="smr.dom.js" />
     <Content Include="smr.js" />
     <Content Include="smr.util.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="build\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
