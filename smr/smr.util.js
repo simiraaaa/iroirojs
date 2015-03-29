@@ -25,7 +25,7 @@
         stringify: function (data, encode, eq, amp) {
             eq = eq || EQUAL;
             amp = amp || AMP;
-            encode = (encode === undefined)
+            encode = (encode === undefined) || encode;
 
             var query = [];
 

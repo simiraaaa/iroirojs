@@ -19,6 +19,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="smr.google.js" />
     <Content Include="smr.ajax.js" />
     <Content Include="smr.dom.icon.js" />
     <Content Include="smr.dom.js" />

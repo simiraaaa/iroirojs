@@ -221,6 +221,8 @@
 
             xhr.send(params.data);
 
+            return xhr;
+
         },
         /**
          * JSONPを読み込む
@@ -247,6 +249,7 @@
             });
             script.element.setAttribute("defer", true);
             script.appendTo(head);
+            return script;
         }
 
     };
