@@ -5,7 +5,7 @@
 
     var EQUAL = "=", AMP = "&";
     var global = smr.global;
-    var encodeURIComponent = global.encodeURIComponent;
+    var encodeURI = global.encodeURI;
 
     var util = {};
     util.queryString = {
@@ -25,17 +25,17 @@
             amp = amp || AMP;
             var query = [];
             for (var key in data) {
-                query[query.length] = encodeURIComponent(key) + eq + encodeURIComponent(data[key]);
+                query[query.length] = encodeURI(key) + eq + encodeURI(data[key]);
             }
             return query.join(amp);
         },
         /**
-         * "="以外をencodeURIComponentする
+         * "="以外をencodeURIする
          */
         encodeURINonEqual: function (s) {
             var ar = s.split(EQUAL);
             for (var i = 0, len = ar.length; i < len; ++i) {
-                ar[i] = encodeURIComponent(ar[i]);
+                ar[i] = encodeURI(ar[i]);
             }
             return ar.join(EQUAL);
         },

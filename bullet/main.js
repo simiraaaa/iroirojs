@@ -89,6 +89,9 @@
         };
 
         scene.update = function (app) {
+
+
+
             fps.shift();
             fps[fps.length] = (new Date() - start);
             start = new Date();
@@ -104,4 +107,8 @@
             b.destroy = destroy;
         };
     });
+
+
+
+
 })(tm);
