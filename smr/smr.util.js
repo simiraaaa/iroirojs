@@ -55,5 +55,64 @@
             alert("smr.util.parse:あとで作る");
         }
     };
+
+
+
+    //random あとで見直す
+    //var Random = smr.define('smr.util.Random', {
+
+    //    seed: 1,
+    //    init: function (seed) {
+    //        this.seed = seed || 1;
+    //    },
+
+    //    xor32: function () {
+    //        return this.seed = xor32(this.seed);
+    //    },
+
+    //    random: function () {
+    //        return random(this.xor32());
+    //    },
+
+    //});
+    //function xor32(y) {
+    //    y = y ^ (y << 13);
+    //    y = y ^ (y >>> 17);
+    //    return (y = (y ^ (y << 5)));
+    //}
+    //var MAX_RANDOM = 4294967295;
+    //function random(x) {
+    //    return (xor32(x) >>> 0) / MAX_RANDOM;
+    //}
+    //smr.defineProperty.call(Random, {
+    //    xor32: xor32,
+    //    random: random,
+    //    MAX: MAX_RANDOM,
+    //});
+
+    (function () {
+        var MAX = -1 >>> 0;
+        var seed = ~~(Math.random() * MAX) || 1;
+        var y = seed;
+        function xor32() {
+            y = y ^ (y << 13);
+            y = y ^ (y >>> 17);
+            return (y = (y ^ (y << 5)));
+        }
+        function random() {
+            return (xor32() >>> 0) / MAX;
+        }
+        util.random = random;
+
+        smr.definePackage(random, {
+            xor32: xor32,
+            seed: seed,
+            MAX: MAX,
+        });
+    })();
+
+
+
+
     smr.definePackages("smr.util", util);
 })(smr);

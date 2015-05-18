@@ -104,11 +104,32 @@
         };
 
 
+        (function () {
+            var MAX = -1 >>> 0;
+            var seed = ~~(Math.random() * MAX) || 1;
+            var y = seed;
+            function xor32() {
+                y = y ^ (y << 13);
+                y = y ^ (y >>> 17);
+                return (y = (y ^ (y << 5)));
+            }
+            function random() {
+                return (xor32() >>> 0) / MAX;
+            }
+            util.random = random;
+
+            smr.extend(random, {
+                xor32: xor32,
+                seed: seed,
+                MAX: MAX,
+            });
+        })();
+
+
     })(util);
 
 
     smr.util = util;
-
 
     //ajax.js
 

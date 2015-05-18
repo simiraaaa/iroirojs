@@ -344,7 +344,7 @@ var smr = smr || {};
                 var o = {};
                 
                 // prototypeのメソッドは全て列挙されず、削除更新不可
-                // メソッドじゃないのは列挙されて削除不可
+                // メソッドじゃないのは列挙されて削除不可***Overrideできないから考え直す(final{}とかで)
                 for ( var k in prp) {
                     var isFn = (typeof prp[k] === 'function');
                     o[k] = {
@@ -447,7 +447,7 @@ var smr = smr || {};
          * 将来的にはaddはなくしたい
          * @name extend
          */
-        add: function (o) {
+        extend: function (o) {
             return this.add(o);
         },
         /**
