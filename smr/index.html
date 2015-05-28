@@ -5,15 +5,21 @@
 
     <script src="smr.js"></script>
     <script src="smr.dom.js"></script>
-    <script src="smr.dom.icon.js"></script>
-    <script src="smr.util.js"></script>
-    <script src="smr.ajax.js"></script>
-    <script src="smr.google.js"></script>
-
+    <script>
+        smr.dom.Element.loadScripts([
+            'smr.dom.icon.js',
+            'smr.util.js',
+            'smr.ajax.js',
+            'smr.google.js',
+            'single/smr.single.js',
+        ]);
+    </script>
     <title>smr</title>
 </head>
 <body>
     tmlib.jsっぽいものを自分でも作ろうと頑張ってるところ<br />
     コンソールからデバッグ用
+   
+
 </body>
 </html>

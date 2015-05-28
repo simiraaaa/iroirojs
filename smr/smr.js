@@ -410,7 +410,7 @@ var smr = smr || {};
         superClass : Object,
         init : function(o) {
             if (o) {
-                this.add(o);
+                this.extend(o);
             }
         },
         /**
@@ -418,8 +418,8 @@ var smr = smr || {};
          *
          * @name add
          */
-        add : function(o) {
-            for ( var k in o) {
+        add: function (o) {
+            for (var k in o) {
                 this[k] = o[k];
             }
             return this;
@@ -430,8 +430,8 @@ var smr = smr || {};
          * @param o
          * @returns {smr.Object}
          */
-        addIfNotHave : function(o) {
-            for ( var k in o) {
+        addIfNotHave: function (o) {
+            for (var k in o) {
                 if (this.has(k)) {
                     continue;
                 }
@@ -448,7 +448,10 @@ var smr = smr || {};
          * @name extend
          */
         extend: function (o) {
-            return this.add(o);
+            for (var k in o) {
+                this[k] = o[k];
+            }
+            return this;
         },
         /**
          * プロパティがない場合に追加
@@ -457,7 +460,13 @@ var smr = smr || {};
          * @returns {smr.Object}
          */
         safe: function (o) {
-            return this.addIfNotHave(o);
+            for (var k in o) {
+                if (this.has(k)) {
+                    continue;
+                }
+                this[k] = o[k];
+            }
+            return this;
         },
 
         /**

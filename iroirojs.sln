@@ -22,6 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "paiza", "paiza", "{5B01C464
 	ProjectSection(SolutionItems) = preProject
 		..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\amida.js = ..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\amida.js
 		..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\beamReflec.js = ..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\beamReflec.js
+		biriyard.js = biriyard.js
 		..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\checkDigit.js = ..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\checkDigit.js
 		..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\dataHist.js = ..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\dataHist.js
 		..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\hanoi.js = ..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\hanoi.js
@@ -29,9 +30,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "paiza", "paiza", "{5B01C464
 		..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\land.js = ..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\land.js
 		..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\latedTrain.js = ..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\latedTrain.js
 		..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\mod7.js = ..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\mod7.js
+		netsafine.js = netsafine.js
 		..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\reversi.js = ..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\reversi.js
 		..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\saitan.js = ..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\saitan.js
 		..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\ThreeDPrinter.js = ..\..\..\..\..\..\pleiades4.4.1\workspace\MyJS2\paiza\ThreeDPrinter.js
+		whereAreWe.js = whereAreWe.js
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "poh", "poh", "{2FF52382-14FA-4107-8B71-465A677980E1}"
@@ -48,7 +51,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tmlibClass", "tmlibClass", 
 		tmlibClass\Arrow.js = tmlibClass\Arrow.js
 		tmlibClass\Flick.js = tmlibClass\Flick.js
 		tmlibClass\random.js = tmlibClass\random.js
+		tmlibClass\test.js = tmlibClass\test.js
 		tmlibClass\tmlib.js = tmlibClass\tmlib.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "milkcocoa", "milkcocoa", "{EA558736-D4C2-45DC-A181-0ECC59C25D85}"
+	ProjectSection(SolutionItems) = preProject
+		milkcocoa-ver.simiraaaa.js = milkcocoa-ver.simiraaaa.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "livestant", "livestant", "{88BDA5F6-161F-47E2-B486-AE443B78D607}"
+	ProjectSection(SolutionItems) = preProject
+		livestant\index.html = livestant\index.html
+		livestant\index.js = livestant\index.js
+		livestant\livestant.css = livestant\livestant.css
+		livestant\livestant.js = livestant\livestant.js
+		smr\smr.ajax.js = smr\smr.ajax.js
+		smr\smr.dom.js = smr\smr.dom.js
+		smr\smr.google.js = smr\smr.google.js
+		smr\smr.js = smr\smr.js
+		smr\smr.util.js = smr\smr.util.js
 	EndProjectSection
 EndProject
 Global

@@ -14,7 +14,6 @@
     var CALLBACK = "callback";
     var callbackName = "smr.callbackFunctions";
     var callbackCount = 0;
-    var head = null;
     var callbackFunctions = [];
     smr.defineProperty("callbackFunctions", callbackFunctions);
 
@@ -239,17 +238,8 @@
             var name = callbackName + "[" + callbackCount + "]";
             ++callbackCount;
             url += (url.indexOf("?") === -1 ? "?" : "&") + callbackKey + "=" + name;
-            if (!head) {
-                head = global.document.head;
-            }
-            var script = smr.dom.Element("script").elementSetter({
-                type: "text/javascript",
-                charset: "UTF-8",
-                src: url
-            });
-            script.element.setAttribute("defer", true);
-            script.appendTo(head);
-            return script;
+            
+            return smr.dom.Element.loadScript(url);
         }
 
     };
